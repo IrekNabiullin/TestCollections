@@ -21,13 +21,13 @@ public class MyComparator {
         }
     }
 
-    static class Sortbyroll implements Comparator<Employee> {
+    static class SortByRoll implements Comparator<Employee> {
         public int compare(Employee a, Employee b) {
             return a.EmpID - b.EmpID;
         }
     }
 
-    static class Sortbyname implements Comparator<Employee> {
+    static class SortByName implements Comparator<Employee> {
         public int compare(Employee a, Employee b) {
             return a.name.compareTo(b.name);
         }
@@ -42,11 +42,11 @@ public class MyComparator {
             System.out.println("Unsorted Data");
             for (int i = 0; i < Arr.size(); i++)
                 System.out.println(Arr.get(i));
-            Collections.sort(Arr, new Sortbyroll());
+            Collections.sort(Arr, new SortByRoll());
             System.out.println("nSorted data according to Employee IDs");
             for (int i = 0; i < Arr.size(); i++)
                 System.out.println(Arr.get(i));
-            Collections.sort(Arr, new Sortbyname());
+            Collections.sort(Arr, new SortByName());
             System.out.println("nSorted data according to Employee name");
             for (int i = 0; i < Arr.size(); i++)
                 System.out.println(Arr.get(i));
