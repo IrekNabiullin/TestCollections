@@ -3,7 +3,7 @@ public class MyPalindrome {
     public static void main(String[] args) {
 
         int lastDigit, sum = 0, a;
-        int inputNumber = 171; //It is the number  to be checked for palindrome
+        int inputNumber = 1712171; //It is the number  to be checked for palindrome
 
         a = inputNumber;
 
