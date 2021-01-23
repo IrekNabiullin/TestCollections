@@ -1,7 +1,4 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Arc2D;
@@ -47,6 +44,7 @@ public class MyPalindromeString extends JFrame {
 
         wordPanel.add(wordField);
         wordPanel.add(button);
+        wordPanel.setBackground(Color.CYAN);
 
         add(wordPanel, BorderLayout.SOUTH);
         setPreferredSize(new Dimension(300, 200));
@@ -60,6 +58,9 @@ public class MyPalindromeString extends JFrame {
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
 
+//        GradientPaint gradient = new GradientPaint(70, 70, Color.BLUE, 150, 150, Color.ORANGE);
+//        g2.setPaint(gradient);
+
         // переменные для частей рожицы
         Ellipse2D.Double face = new Ellipse2D.Double(100, 50, 100, 100);
         Ellipse2D.Double leftEye = new Ellipse2D.Double(130, 80, 10, 10);
@@ -70,15 +71,17 @@ public class MyPalindromeString extends JFrame {
         String word = wordField.getText();
 
         if (!word.equals("")) {
+
+            if (isPalindrome(word)) {
+                g2.setColor(Color.GREEN); //задаем зеленый цвет для улыбки
+                g2.draw(smile);
+            } else {
+                g2.setColor(Color.RED); // задаем красный цвет для мимики отрицания
+                g2.draw(pain);
+            }
             g2.draw(face);
             g2.draw(leftEye);
             g2.draw(rightEye);
-
-            if (isPalindrome(word)) {
-                g2.draw(smile);
-            } else {
-                g2.draw(pain);
-            }
         }
     }
 
